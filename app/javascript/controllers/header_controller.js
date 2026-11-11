@@ -1,0 +1,27 @@
+
+import { Controller } from "@hotwired/stimulus"
+import { enter, leave, toggle } from "el-transition"
+
+export default class extends Controller {
+
+  static targets = ["dropdown", "openUserMenu"]
+
+  connect() {
+    this.openUserMenuTarget.addEventListener("click", () => {
+      this.toggleDropdown()
+    })
+  }
+
+  openDropdown() {
+    enter(this.dropdownTarget)
+  }
+
+  closeDropdown() {
+    leave(this.dropdownTarget)
+  }
+
+  toggleDropdown() {
+    toggle(this.dropdownTarget)
+  }
+
+}
